@@ -1,11 +1,11 @@
-import {Route, BrowserRouter as Router, Routes} from 'react-router-dom';
+import {Route, HashRouter as Router, Routes} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import {Home, About, Work_Experience, Tech, Projects, Contact} from './pages'
 
 const App = () => {
   return (
    <main className= "bg-raisin-500 text-cornmilk-500 min-h-screen">
-    <Router>
+    <Router basename='/'> 
         <Navbar/>
         <Routes>
             <Route path="/" element={<Home/>} />
