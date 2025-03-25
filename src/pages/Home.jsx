@@ -80,7 +80,7 @@ const Home = () => {
           
           {/* Main heading - bigger on small screens */}
           <div>
-            <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-bittersweet-500 neon-text">
+            <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-7xl font-bold text-bittersweet-500 neon-text">
               Hi! I am <br /> 
               <span className="text-bittersweet-500 neon-text">Parth Desai</span>
             </h1>
@@ -95,7 +95,7 @@ const Home = () => {
         </div>
 
         {/* Social links - good size on small screens */}
-        <div className="mt-8 md:mt-12 flex gap-6"> {/* Increased from mt-4 md:mt-6 and gap-4 */}
+        <div className="mt-10 md:mt-16 flex gap-6"> {/* Increased from mt-4 md:mt-6 and gap-4 */}
           <a href="https://github.com/RuntimeTerror1001" target="_blank" rel="noopener noreferrer" 
             className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-bittersweet-500 flex items-center justify-center
             hover:bg-raisin-500 hover:text-white transition-colors">
@@ -109,7 +109,7 @@ const Home = () => {
         </div>
 
         {/* Download CV button - good size on small screens */}
-        <div className="mt-10 md:mt-16"> {/* Increased from mt-6 md:mt-8 */}
+        <div className="mt-14 md:mt-20"> {/* Increased from mt-6 md:mt-8 */}
           <a href="./cv.pdf" download="Parth_Desai_CV.pdf" 
             className="bg-bittersweet-500 text-cornmilk-500 px-6 md:px-8 py-3 md:py-4 rounded-lg
             hover:bg-raisin-500 transition-colors text-base md:text-lg lg:text-xl font-medium">

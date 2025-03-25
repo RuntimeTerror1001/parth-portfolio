@@ -31,7 +31,7 @@ const About = () => {
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
-        className="mt-4 text-gray-400 text-[17px] max-w-3xl leading-[30px]"
+        className="mt-4 text-cornmilk-500 text-[17px] max-w-3xl leading-[30px]"
       >
         I'm a skilled robotics software developer with experience in C++, Python, MATLAB and frameworks
         like ROS2 along with simulation tools like Gazebo, RViz and MuJoCo. I'm a quick learner and collaborate closely with clients to

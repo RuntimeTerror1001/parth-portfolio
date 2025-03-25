@@ -152,9 +152,9 @@ const Contact = () => {
           <Suspense fallback={<Loader />}>
           <Rodot_5000
             currentAnimation={currentAnimation}
-            position={[2, -1, 0]} // Adjusted Y position to account for larger size
-            rotation={[0, -Math.PI/2 - 0.5, 0]} // Rotate 180 degrees (π radians) around Y axis to face front
-            scale={[2.5,2.5,2.5]} // Increased scale from 0.8 to 1.5
+            position={[1, 1.5, 0]} // Adjusted Y position to account for larger size
+            rotation={[0.5, -Math.PI/2 - 0.5, 0]} // Rotate 180 degrees (π radians) around Y axis to face front
+            scale={[2,2,2]} // Increased scale from 0.8 to 1.5
           />
           </Suspense>
         </Canvas>
