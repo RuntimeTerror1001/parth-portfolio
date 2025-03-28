@@ -38,36 +38,32 @@ const techs = [
         icon: c
     },
     {
-        name: "Dart",
-        icon: dart
+      name: "Python",
+      icon: python
     },
     {
-        name: "Flutter",
-        icon: flutter
+        name: "ROS2",
+        icon: ros2
     },
     {
-        name: "Gazebo",
-        icon: gazebo
+      name: "Gazebo",
+      icon: gazebo
     },
     {
-        name: "Git",
-        icon: git
+      name: "Mujoco",
+      icon: mujoco
     },
     {
-        name: "Linux",
-        icon: linux
+      name: "Linux",
+      icon: linux
     },
     {
-        name: "Matlab",
-        icon: matlab
+      name: "Matlab",
+      icon: matlab
     },
     {
         name: "Matplotlib",
         icon: matplotlib
-    },
-    {
-        name: "Mujoco",
-        icon: mujoco
     },
     {
         name: "Numpy",
@@ -82,16 +78,20 @@ const techs = [
         icon: pandas
     },
     {
-        name: "Python",
-        icon: python
-    },
-    {
-        name: "ROS2",
-        icon: ros2
-    },
-    {
         name: "Tensorflow",
         icon: tensorflow
+    },
+    {
+        name: "Dart",
+        icon: dart
+    },
+    {
+        name: "Flutter",
+        icon: flutter
+    },
+    {
+        name: "Git",
+        icon: git
     }
 ]
 

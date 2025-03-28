@@ -142,7 +142,6 @@ const Home = () => {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-4 md:bottom-8 w-full flex justify-center items-center z-20">
-        <a href="#about">
           <div className="w-[24px] h-[40px] md:w-[28px] md:h-[48px] rounded-3xl border-2 border-cornmilk-500 flex justify-center items-center">
             <motion.div 
               animate={{y: [-8, 8, -8]}} 
@@ -154,7 +153,6 @@ const Home = () => {
               className="w-3 h-3 md:w-4 md:h-4 rounded-full bg-cornmilk-500" 
             />
           </div>
-        </a>
       </div>
 
       <div id="about">
