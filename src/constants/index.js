@@ -14,6 +14,7 @@ import {
     opencv,
     pandas,
     python,
+    rashmi,
     ros2,
     tensorflow
 } from '../assets/icons/'
@@ -97,16 +98,17 @@ const techs = [
 
 const experiences = [
     {
-        title: "Application Developer Intern",
-        company_name: "Amateur Ball LLC",
-        icon: amateurball,
+        title: "Software & Automation Developer",
+        company_name: "Rashmi Enterprises",
+        icon: rashmi,
         /*iconBg: "#383E56",*/
-        date: "May 2024 - August 2024",
+        date: "Jan 2021 - Dec 2021, July 2022 - July 2023",
         points: [
-          "Migrated flagship app from React Native to Flutter, improving UI smoothness and reducing load times by 30%.",
-          "Optimized app performance by reducing memory usage and enhancing responsiveness post-migration.",
-          "Developed a real-time anomaly detection system in Python, identifying unusual behavior patterns, which improved system robustness.",
-          "Developed a sentiment analysis model and spam detection algorithm using Python to filter negative user content and inappropriate content, enhancing user safety.",
+          "Designed and deployed the company’s website, establishing a professional digital presence and improving client outreach by 50%.",
+          "Developed an OpenCV-based print defect detection system prototype, identifying misalignments and smudges in real-time using the integrated camera footage.",
+          "Simulated a fleet of autonomous mobile robots (AMRs) in ROS2 and Gazebo to automate material transport across print, binding, and packaging stations using decentralized task coordination.",
+          "Developed a vision-guided sorting prototype, where agents classified printed materials by quality using OpenCV and executed sorting tasks through ROS2-controlled actuators.",
+          "Designed a modular ROS2 architecture with separate perception, planning, and control nodes, enabling scalable and testable simulation workflows."
         ],
       },
       {
@@ -116,10 +118,9 @@ const experiences = [
         /*iconBg: "#383E56",*/
         date: "January 2022 - June 2022",
         points: [
-            "Improved the UI/UX with reusable custom widgets in Flutter, boosting user interaction by 90%.",
-            "Integrated Google Auth for a custom login feature, enhancing engagement and security.",
-            "Engineered APIs with Django Rest Framework and PostgreSQL for efficient data handling.",
-            "Built a Python ML recommendation engine with 93% accuracy."
+          "Revamped UI/UX with reusable Flutter custom widgets, increasing user engagement by 90%.",
+          "Designed and implemented RESTful APIs using Django REST Framework and PostgreSQL for efficient backend integration.",
+          "Developed a Python-based recommendation engine achieving 93% accuracy in content personalization."
         ],
       }
 ]
@@ -129,7 +130,7 @@ const projects = [
         name: "Real Steel",
         points:
           [
-            "Developing a real-time motion retargeting system that maps human upper-body movements onto a humanoid robot while ensuring kinematic and dynamic feasibility. \n This involves integrating a camera-based motion capture system with retargeting and control modules, while also exploring machine learning techniques to enhance motion prediction and control."
+            "Developed a real-time motion retargeting system that maps human upper-body movements onto a humanoid robot while ensuring kinematic and dynamic feasibility. \n This involves integrating a camera-based motion capture system with retargeting and control modules, while also exploring machine learning techniques to enhance motion prediction and control."
           ],
         tags: [
           {
