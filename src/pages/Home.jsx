@@ -86,37 +86,44 @@ const Home = () => {
             </h1>
           </div>
           
-          {/* Subheading - maintain good size on small screens */}
-        <div className="mt-5 md:mt-8"> {/* Increased from mt-3 md:mt-4 */}
-          <h2 className="text-lg sm:text-lg md:text-xl lg:text-2xl text-cornmilk-500">
-            Bridging Robotics, AI, and Software Innovation: <br />
-            where intelligent automation meets creative problem-solving
-          </h2>
-        </div>
+          {/* Subheading - reduced spacing */}
+          <div className="mt-3 md:mt-6">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-cornmilk-500 font-medium">
+              I don't just code, <br />
+              I solve.
+            </h2>
+          </div>
 
-        {/* Social links - good size on small screens */}
-        <div className="mt-10 md:mt-16 flex gap-6"> {/* Increased from mt-4 md:mt-6 and gap-4 */}
-          <a href="https://github.com/RuntimeTerror1001" target="_blank" rel="noopener noreferrer" 
-            className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-bittersweet-500 flex items-center justify-center
-            hover:bg-raisin-500 hover:text-white transition-colors">
-            <FaGithub className="w-5 h-5 md:w-6 md:h-6" />
-          </a>
-          <a href="https://www.linkedin.com/in/parth-desai-021027/" target="_blank" rel="noopener noreferrer"
-            className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-bittersweet-500 flex items-center justify-center
-            hover:bg-raisin-500 hover:text-white transition-colors">
-            <FaLinkedin className="w-5 h-5 md:w-6 md:h-6" />
-          </a>
-        </div>
+          {/* Social links - reduced spacing */}
+          <div className="mt-6 md:mt-10 flex gap-6">
+            <a href="https://github.com/RuntimeTerror1001" target="_blank" rel="noopener noreferrer" 
+              className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-bittersweet-500 flex items-center justify-center
+              hover:bg-raisin-500 hover:text-white transition-colors">
+              <FaGithub className="w-5 h-5 md:w-6 md:h-6" />
+            </a>
+            <a href="https://www.linkedin.com/in/parth-desai-021027/" target="_blank" rel="noopener noreferrer"
+              className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-bittersweet-500 flex items-center justify-center
+              hover:bg-raisin-500 hover:text-white transition-colors">
+              <FaLinkedin className="w-5 h-5 md:w-6 md:h-6" />
+            </a>
+          </div>
 
-        {/* Download CV button - good size on small screens */}
-        <div className="mt-14 md:mt-20"> {/* Increased from mt-6 md:mt-8 */}
-          <a href="./cv.pdf" download="Parth_Desai_CV.pdf" 
-            className="bg-bittersweet-500 text-cornmilk-500 px-6 md:px-8 py-3 md:py-4 rounded-lg
-            hover:bg-raisin-500 transition-colors text-base md:text-lg lg:text-xl font-medium">
-            Download CV
-          </a>
-        </div>
-      </div>  
+          {/* Download CV button - reduced spacing */}
+          <div className="mt-8 md:mt-12">
+            <a href="./cv.pdf" download="Parth_Desai_CV.pdf" 
+              className="bg-bittersweet-500 text-cornmilk-500 px-6 md:px-8 py-3 md:py-4 rounded-lg
+              hover:bg-raisin-500 transition-colors text-base md:text-lg lg:text-xl font-medium">
+              Download CV
+            </a>
+          </div>
+
+          {/* Optional: Add a brief description to fill space */}
+          <div className="mt-6 md:mt-8 max-w-md">
+            {/* <p className="text-cornmilk-500 opacity-80 text-sm md:text-base leading-relaxed">
+              Passionate about creating intelligent solutions that bridge the gap between complex technology and real-world problems.
+            </p> */}
+          </div>
+        </div>  
         
         {/* Robot section - takes less space on small screens */}
         <div className={`${showContent ? 'opacity-100' : 'opacity-0'} 
