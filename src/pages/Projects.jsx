@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import { styles } from "../styles";
 import { github } from "../assets/icons";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
+import ProjectDetail from "./ProjectDetail";
 
 const ProjectCard = ({
   index,
@@ -15,7 +17,11 @@ const ProjectCard = ({
   tags,
   image,
   source_code_link,
+  onProjectClick,
+  project
 }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
       <Tilt
@@ -30,13 +36,14 @@ const ProjectCard = ({
           <img
             src={image}
             alt='project_image'
-            className='w-full h-full object-cover rounded-2xl'
+            className='w-full h-full object-cover rounded-2xl cursor-pointer hover:opacity-90 transition-opacity duration-300'
+            onClick={() => onProjectClick(project)}
           />
 
           <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
             <div
               onClick={() => window.open(source_code_link, "_blank")}
-              className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
+              className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer hover:scale-110 transition-transform duration-300'
             >
               <img
                 src={github}
@@ -48,7 +55,16 @@ const ProjectCard = ({
         </div>
 
         <div className='mt-5'>
-          <h3 className='font-bold text-[24px] text-bittersweet-500'>{name}</h3>
+          <h3 
+            className={`font-bold text-[24px] cursor-pointer transition-colors duration-300 ${
+              isHovered ? 'text-cornmilk-500' : 'text-bittersweet-500'
+            }`}
+            onClick={() => onProjectClick(project)}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            {name}
+          </h3>
           <p className='mt-2 text-secondary text-[14px] text-cornmilk-500'>{points}</p>
         </div>
 
@@ -68,6 +84,39 @@ const ProjectCard = ({
 };
 
 const Works = () => {
+  const [selectedProject, setSelectedProject] = useState(null);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Function to convert project name to URL slug
+  const nameToSlug = (name) => {
+    return name.toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '') // Remove special characters except spaces and hyphens
+      .replace(/\s+/g, '-') // Replace spaces with hyphens
+      .replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
+      .trim();
+  };
+
+  const handleProjectClick = (project) => {
+    const slug = nameToSlug(project.name);
+    
+    // Check if we're on the projects page (modal behavior)
+    if (window.location.hash === '#/projects') {
+      setSelectedProject(project);
+    } else {
+      // Navigate to dedicated project page with state indicating where we came from
+      navigate(`/project/${slug}`, {
+        state: { 
+          from: location.pathname === '/' ? '/#projects' : location.pathname 
+        }
+      });
+    }
+  };
+
+  const handleCloseProject = () => {
+    setSelectedProject(null);
+  };
+
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -90,9 +139,23 @@ const Works = () => {
 
       <div className='mt-20 flex flex-wrap gap-7'>
         {projects.map((project, index) => (
-          <ProjectCard key={`project-${index}`} index={index} {...project} />
+          <ProjectCard 
+            key={`project-${index}`} 
+            index={index} 
+            {...project}
+            project={project}
+            onProjectClick={handleProjectClick}
+          />
         ))}
       </div>
+
+      {/* Project Detail Modal - only show when on projects page */}
+      {selectedProject && (
+        <ProjectDetail 
+          project={selectedProject} 
+          onClose={handleCloseProject}
+        />
+      )}
     </>
   );
 };

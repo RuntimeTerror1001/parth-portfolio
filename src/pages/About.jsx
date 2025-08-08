@@ -33,11 +33,13 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className="mt-4 text-cornmilk-500 text-[17px] max-w-3xl leading-[30px]"
       >
-        I'm a skilled robotics software developer with experience in C++, Python, MATLAB and frameworks
-        like ROS2 along with simulation tools like Gazebo, RViz and MuJoCo. I'm a quick learner and collaborate closely with clients to
-        create efficient, scalable, and user-friendly solutions that solve
-        real-world problems. Let's work together to bring your ideas to life! <br></br>
-        Some of the domains that I love to work on are:
+        Robotics software engineer with industry and research experience building full-stack automation systems—
+        from multi-AMR fleets and vision-guided sorting cells to perception pipelines and autonomous drones. 
+        Skilled in C++, Python, and MATLAB with deep expertise in ROS 2, simulation (Gazebo, MuJoCo, CARLA, RViz), 
+        and real-time control. I've deployed ROS 2 stacks in live production environments, built custom perception 
+        modules (OpenCV, YOLO), and integrated planning, control, and sensing for robust, scalable solutions.<br></br>
+
+        Domains I enjoy working in:
       </motion.p>
 
       <div className="mt-20 flex flex-row flex-wrap justify-center md:justify-start gap-6">

@@ -1,6 +1,7 @@
 import {Route, HashRouter as Router, Routes} from 'react-router-dom';
 import Navbar from './components/Navbar';
-import {Home, About, Work_Experience, Tech, Projects, Contact} from './pages'
+import {Home, About, Work_Experience, Tech, Projects, Contact} from './pages';
+import ProjectDetailPage from './pages/ProjectDetailPage';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
             <Route path="/tech" element={<Tech/>} />
             <Route path="/projects" element={<Projects/>} />
             <Route path="/contact" element={<Contact/>} />
+            <Route path="/project/:projectSlug" element={<ProjectDetailPage/>} />
         </Routes>
     </Router>
    </main>

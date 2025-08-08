@@ -2,6 +2,7 @@
 import amateurball from './amateurball.jpeg';
 import amazeyoo from './amazeyoo.png';
 import c from './c.svg';
+import carla from './carla.jpeg'
 import dart from './dart.svg';
 import flutter from './flutter.svg';
 import gazebo from './gazebo.svg';
@@ -24,6 +25,7 @@ export {
   amateurball,
   amazeyoo,
   c,
+  carla,
   dart,
   flutter,
   gazebo,
