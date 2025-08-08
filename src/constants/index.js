@@ -234,7 +234,7 @@ const projects = [
       { name: "MuJoCo", color: "red-text-gradient" }
     ],
     image: real_steel,
-    source_code_link: "https://github.com/RuntimeTerror1001/Real-Steel",
+    source_code_link: "https://github.com/RuntimeTerror1001/Real-Steel-ROS-",
   },
   {
     name: "HELIOS SAR Drone",
