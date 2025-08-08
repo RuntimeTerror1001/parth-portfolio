@@ -246,12 +246,14 @@ const projects = [
       "Designed a ROS 2-based autonomous drone for search and rescue in disaster environments. ",
       "Fused LiDAR, camera, and IMU data for SLAM with <5% drift in custom Gazebo simulations. ",
       "Implemented RRT* for global path planning with ~90% success rate in ≤2.5s. ",
+      "Developed custom PID controllers for thrust and velocity regulation, ensuring stable multi-rotor flight. ",
       "Built realistic disaster environments in Gazebo with clutter, occlusions, and debris. ",
       "Integrated victim detection and adaptive navigation using OpenCV and ROS 2 services. "
     ],
     key_features: [
       "✅ Multi-sensor SLAM using LiDAR, camera, and IMU. ",
       "✅ RRT* planner with rapid path generation. ",
+      "✅ Custom PID for multi-rotor flight. ",
       "✅ OpenCV-based static victim detection (~80% accuracy). ",
       "✅ Custom Gazebo worlds for disaster simulation. ",
       "✅ ROS 2 node graph for full autonomy pipeline. "
