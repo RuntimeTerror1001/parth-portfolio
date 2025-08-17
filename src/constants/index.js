@@ -234,7 +234,21 @@ const projects = [
       { name: "MuJoCo", color: "red-text-gradient" }
     ],
     image: real_steel,
-    source_code_link: "https://github.com/RuntimeTerror1001/Real-Steel-ROS-",
+    source_code_link: "https://github.com/RuntimeTerror1001/Real-Steel",
+    demos:[
+      {
+        type: "video",
+        title: "Input Video", 
+        description: "Set of motions given as input. (View in Fullscreen)",
+        url: "./demos/real_steel/input_vid.mp4"
+      },
+      {
+        type: "video",
+        title: "Output Video",
+        description: "Set of replicated motions by the robot. (View in Fullscreen)",
+        url: "./demos/real_steel/output_vid.mp4"
+      }
+    ]
   },
   {
     name: "HELIOS SAR Drone",
