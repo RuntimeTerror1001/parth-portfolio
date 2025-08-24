@@ -124,39 +124,42 @@ const projects = [
     {
     name: "ADAS - Path Following & AEB",
     points: [
-      "Built a ROS 2 stack for pure-pursuit path following and TTC-based emergency braking using YOLOv8 obstacle detection. ",
-      "Integrated PID-based speed control with progressive slowing and validated in dynamic CARLA traffic. "
+      "Built a ROS 2 stack for pure-pursuit path following and TTC-based AEB using front RGB+LiDAR fusion; filtered curb-parked cars via in-lane corridor gating and ROIs.",
+      "Integrated PID-based speed control with progressive slowing; validated in 40+ CARLA traffic scenarios with <500 ms AEB response after TTC breach."
     ],
      description: [
-      "Developed a modular full-stack ADAS system in ROS 2 with real-time perception and control. \n",
-      "Implemented pure-pursuit steering with adaptive lookahead, achieving <25cm lateral deviation at 60 km/h. ",
-      "Integrated a YOLOv8-based obstacle detector with class-aware TTC estimation for reliable emergency braking (<500ms response). ",
-      "Designed a PID-based longitudinal controller with dead-zone, anti-windup, and progressive speed reduction based on obstacle proximity. ",
-      "Validated in CARLA simulator with over 40 dynamic actors in varied road conditions. "
+      "Developed a real-time ADAS system in ROS 2 with front (RGB+LiDAR) fusion and rear (dual radars + rear RGB) awareness for safe lane decisions.\n",
+      "Implemented pure-pursuit steering with adaptive lookahead, achieving <25 cm lateral deviation at 60 km/h.\n",
+      "Used YOLOv8n detections + Kalman multi-object tracking to estimate relative speed and TTC for reliable emergency braking.\n",
+      "Designed a PID longitudinal controller with dead-zone, anti-windup, and distance-band speed shaping.\n",
+      "Hardened against curb-parked vehicles via lateral in-lane gating and LiDAR/camera ROI tightening; exercised in varied CARLA roads.\n"
     ],
     key_features: [
-      "✅ TTC-based AEB using tracked obstacle velocities. ",
-      "✅ Progressive speed control based on distance bands. ",
-      "✅ Adaptive pure-pursuit controller. ",
-      "✅ Modular ROS 2 architecture (perception, control, planning). ", 
-      "✅ Real-time testing in CARLA traffic scenarios. ",
+      "✅ TTC-based AEB with tracked relative velocities",
+      "✅ Progressive speed control via distance bands",
+      "✅ Adaptive pure-pursuit steering",
+      "✅ Front (RGB+LiDAR) and rear (dual radar + rear RGB) fusion",
+      "✅ RViz obstacle visualization with corridor overlays"
     ],
     tech: [
-      { name: "ROS2"},
-      { name: "CARLA Sim."},
-      { name: "Python"},
-      { name: "OpenCV"},
-      { name: "YOLOv8n"},
-      { name: "PID Control"},
-      { name: "Pure-Pursuit"},
-      { name: "NumPy"},
-      { name: "RViz"},
+      { name: "ROS 2" },
+      { name: "CARLA" },
+      { name: "Python" },
+      { name: "OpenCV" },
+      { name: "PyTorch" },
+      { name: "YOLOv8n" },
+      { name: "LiDAR" },
+      { name: "Radar" },
+      { name: "PID Control" },
+      { name: "Pure-Pursuit" },
+      { name: "RViz" }
     ],
     tags: [
       { name: "Python", color: "blue-text-gradient" },
       { name: "ROS2", color: "green-text-gradient" },
       { name: "CARLA", color: "red-text-gradient" },
-      { name: "OpenCV", color: "pink-text-gradient" }
+      { name: "OpenCV", color: "pink-text-gradient" },
+      { name: "Sensor Fusion", color: "purple-text-gradient" }
     ],
     image: lkas_aeb, 
     source_code_link: "https://github.com/RuntimeTerror1001/LKAS_AEB",
