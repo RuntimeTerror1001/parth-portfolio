@@ -3,7 +3,8 @@ import genesis from './genesis.jpg'
 import real_steel from './real_steel.jpg'
 import solar from './solar.jpeg'
 import lkas_aeb from './lkas_aeb.svg'
+import atlas from './atlas.png'
 
 export {
-    drone, genesis, real_steel, solar, lkas_aeb
+    drone, genesis, real_steel, solar, lkas_aeb, atlas
 }

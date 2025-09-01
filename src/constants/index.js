@@ -25,7 +25,8 @@ import {
   genesis,
   real_steel,
   solar,
-  lkas_aeb
+  lkas_aeb,
+  atlas
 } from '../assets/projects/'
 
 import {
@@ -203,6 +204,48 @@ const projects = [
     ]
   },
   {
+    name: "ATLAS - Autonomouos Warehuose Picking and Inventory Management",
+    points: [
+      "Built a single-launch ROS 2 stack (sim, perception, planning, manipulation) and executed 3–5 autonomous pick–place cycles end-to-end.",
+      "Cut point-cloud noise 60%+; segmented & tracked 15–30 items; median grasp plan <2 s with ≥80% success."
+    ],
+    description: [
+      "Stood up a warehouse sim with TurtleBot4 + arm; one launch brings up Gazebo/Ignition, perception, MoveIt2, and RViz.",
+      "Perception: pass-through (0.3–3.0 m), 1 cm voxel grid, statistical outlier removal → 60%+ noise reduction.",
+      "Segmentation: RANSAC plane removal + Euclidean clustering (~5 cm tol, size filters) → 15–30 items with 85–90% precision.",
+      "Grasping: PCA-aligned poses → MoveIt2 planning; median plan <2 s; ≥80% grasp success across 5+ object types.",
+      "Execution: persistent object IDs, grasp filtering, retry-on-failure; simulated throughput ≥10 objects/min; p99 plan latency ≈2.8 s; RViz overlays for QA."
+    ],
+    key_features: [
+      "✅ Single-launch ROS 2 bring-up (sim → perception → manipulation)",
+      "✅ RANSAC + Euclidean clustering object segmentation",
+      "✅ PCA-aligned grasp planning in MoveIt2",
+      "✅ Persistent IDs, grasp filtering, retry-on-failure",
+      "✅ Metrics: <2 s median plan, ≥10 objs/min throughput (sim)"
+    ],
+    tech: [
+      { name: "ROS 2" },
+      { name: "Ignition Gazebo Fortress Sim." },
+      { name: "C++" },
+      { name: "Python" },
+      { name: "MoveIt2" },
+      { name: "PCL" },
+      { name: "Open3D" },
+      { name: "OpenCV" },
+      { name: "RViz" },
+      { name: "TF2" }
+    ],
+    tags: [
+      { name: "C++", color: "blue-text-gradient" },
+      { name: "ROS2", color: "green-text-gradient" },
+      { name: "Gazebo", color: "red-text-gradient" },
+      { name: "MoveIt2", color: "purple-text-gradient" },
+      { name: "Perception", color: "pink-text-gradient" }
+    ],
+    image: atlas, 
+    source_code_link: "https://github.com/RuntimeTerror1001/ATLAS"
+  },
+  {
     name: "Real Steel",
     points: [
       "Mapped human upper-body motion to robot joints in real time using MediaPipe, ROS 2, and custom IK. ",
@@ -256,43 +299,38 @@ const projects = [
   {
     name: "HELIOS SAR Drone",
     points: [
-      "Designed a ROS 2-based autonomous drone for SLAM and RRT* path planning in disaster environments. ",
-      "Built modular Gazebo worlds and integrated vision for victim detection and navigation. "
+      "Built a real-time C++ control plugin (thrust + body torques) for a DJI M100-class quad; single-launch ROS 2 bring-up.",
+      "Cascaded PID (pos→vel→att→rate) with anti-windup, saturation, and failsafes; achieved ≤10 cm hover RMS and ≤2° attitude MAE (sim)."
     ],
     description: [
-      "Designed a ROS 2-based autonomous drone for search and rescue in disaster environments. ",
-      "Fused LiDAR, camera, and IMU data for SLAM with <5% drift in custom Gazebo simulations. ",
-      "Implemented RRT* for global path planning with ~90% success rate in ≤2.5s. ",
-      "Developed custom PID controllers for thrust and velocity regulation, ensuring stable multi-rotor flight. ",
-      "Built realistic disaster environments in Gazebo with clutter, occlusions, and debris. ",
-      "Integrated victim detection and adaptive navigation using OpenCV and ROS 2 services. "
+      "Authored a thrust/torque controller with X-quad motor mixing and runtime-tunable ROS 2 params.",
+      "Tuned Z/attitude loops via gain sweeps; Z-step settling <1.0 s with <8% overshoot across 0.5–2 m steps.",
+      "Rate loop MAE ≤2 deg/s under ±3 m/s gusts; control loop ≥200 Hz with zero allocations post-init.",
+      "Added arming state machine, loss-of-odom guard, and soft altitude ceiling for safety."
     ],
     key_features: [
-      "✅ Multi-sensor SLAM using LiDAR, camera, and IMU. ",
-      "✅ RRT* planner with rapid path generation. ",
-      "✅ Custom PID for multi-rotor flight. ",
-      "✅ OpenCV-based static victim detection (~80% accuracy). ",
-      "✅ Custom Gazebo worlds for disaster simulation. ",
-      "✅ ROS 2 node graph for full autonomy pipeline. "
+      "✅ Real-time C++ controller (thrust, τx, τy, τz)",
+      "✅ Cascaded PID with anti-windup & clamping",
+      "✅ Hover RMS ≤10 cm; attitude MAE ≤2° (sim)",
+      "✅ Z-step settling <1.0 s; overshoot <8%",
+      "✅ ≥200 Hz loop; zero-alloc runtime"
     ],
     tech: [
       { name: "ROS2"},
-      { name: "Gazebo Fortress Sim."},
+      { name: "Ignition Gazebo Fortress Sim."},
       { name: "C++"},
       { name: "Python"},
-      { name: "OpenCV"},
-      { name: "RRT* Path Planning"},
-      { name: "Sensor Fusion (LIDAR | IMU"},
+      { name: "Control Systems"},
       { name: "RViz"},
     ],
     tags: [
       { name: "Python", color: "blue-text-gradient" },
       { name: "ROS2", color: "green-text-gradient" },
-      { name: "OpenCV", color: "pink-text-gradient" },
-      { name: "Gazebo", color: "red-text-gradient" }
+      { name: "Gazebo", color: "pink-text-gradient" },
+      { name: "Control Systems", color: "red-text-gradient" }
     ],
     image: drone,
-    source_code_link: "https://github.com/RuntimeTerror1001/HELIOS",
+    source_code_link: "https://github.com/RuntimeTerror1001/HELIOS_SAR",
   },
   {
     name: "GENESIS",
