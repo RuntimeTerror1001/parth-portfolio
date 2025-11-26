@@ -53,7 +53,7 @@ const Navbar = () => {
     return (
       <>
         <button className={getNavItemClasses()} onClick={() => scrollToSection('about')}>About</button>
-        <button className={getNavItemClasses()} onClick={() => scrollToSection('work_ex')}>Work Experience</button>
+        {/* <button className={getNavItemClasses()} onClick={() => scrollToSection('work_ex')}>Work Experience</button> */}
         <button className={getNavItemClasses()} onClick={() => scrollToSection('tech')}>Tech</button>
         <button className={getNavItemClasses()} onClick={() => scrollToSection('projects')}>Projects</button>
         <button className={getNavItemClasses()} onClick={() => scrollToSection('contact')}>Contact</button>

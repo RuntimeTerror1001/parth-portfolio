@@ -165,9 +165,9 @@ const Home = () => {
       <div id="about">
         <About/>
       </div>
-      <div id="work_ex">
+      {/* <div id="work_ex">
         <Work_Experience/>
-      </div>
+      </div> */}
       <div id="tech">
         <Tech />
       </div>
