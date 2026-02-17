@@ -4,7 +4,8 @@ import real_steel from './real_steel.jpg'
 import solar from './solar.jpeg'
 import lkas_aeb from './lkas_aeb.svg'
 import atlas from './atlas.png'
+import edge_p from './edgep.png'
 
 export {
-    drone, genesis, real_steel, solar, lkas_aeb, atlas
+    drone, genesis, real_steel, solar, lkas_aeb, atlas, edge_p
 }

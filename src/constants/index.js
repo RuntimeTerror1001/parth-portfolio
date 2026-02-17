@@ -26,7 +26,8 @@ import {
   real_steel,
   solar,
   lkas_aeb,
-  atlas
+  atlas,
+  edge_p
 } from '../assets/projects/'
 
 import {
@@ -122,6 +123,48 @@ const experiences = [
 ]
 
 const projects = [
+      {
+      name: "Bandwidth-Aware Edge Perception Node",
+      points: [
+        "Engineered a headless, containerized perception system on NVIDIA Jetson Orin Nano using ROS 2 Humble and FastDDS Discovery Server; achieved cold-boot-to-data transmission in <60 seconds.",
+        "Developed an adaptive 'Bandwidth Manager' that dynamically throttles perception FPS (30Hz → 5Hz) based on real-time network health, maintaining system stability under 10% packet loss and 200ms latency."
+      ],
+      description: [
+        "Edge Architecture: Fully containerized deployment on JetPack 6 (Ubuntu 22.04); utilizes FastDDS Discovery Server (unicast) to eliminate multicast reliance and enable robust static discovery.",
+        "High-Performance Perception: C++ based YOLOv8 implementation optimized with TensorRT; modular design separates the inference engine (tensorrt_engine.cpp) from the ROS wrapper for low-latency detection.",
+        "Adaptive Network Control: Python-based 'Bandwidth Manager' subscribes to /network_health and proactively reconfigures the perception node's target FPS via ROS 2 services to prevent congestion.",
+        "Self-Healing Logic: Implemented a 'Watchdog Node' that monitors topic liveness; automatically kills and restarts the Docker container if telemetry stalls for >2 seconds.",
+        "Chaos Engineering: Integrated a custom 'Chaos Mode' test harness using Linux Traffic Control (tc) to inject jitter, latency, and packet loss, validating the system's graceful degradation capabilities."
+      ],
+      key_features: [
+        "✅ Adaptive FPS Throttling (Bandwidth-Aware)",
+        "✅ FastDDS Discovery Server (Static Discovery)",
+        "✅ Automated Container Recovery (Watchdog)",
+        "✅ TensorRT C++ Inference",
+        "✅ 'Chaos Mode' Fault Injection Suite"
+      ],
+      tech: [
+        { name: "ROS 2 Humble" },
+        { name: "NVIDIA Jetson Orin Nano" },
+        { name: "Docker & JetPack 6" },
+        { name: "C++ (Perception)" },
+        { name: "Python (Logic)" },
+        { name: "TensorRT" },
+        { name: "FastDDS" },
+        { name: "Linux Traffic Control (tc)" },
+        { name: "GitHub Actions (CI/CD)" },
+        { name: "Foxglove" }
+      ],
+      tags: [
+        { name: "Edge AI", color: "blue-text-gradient" },
+        { name: "Network Engineering", color: "green-text-gradient" },
+        { name: "System Resilience", color: "red-text-gradient" },
+        { name: "Docker", color: "purple-text-gradient" },
+        { name: "C++", color: "pink-text-gradient" }
+      ],
+      image: edge_p, 
+      source_code_link: "https://github.com/RuntimeTerror1001/robot_edge_stack"
+    },
     {
     name: "ADAS - Path Following & AEB",
     points: [
