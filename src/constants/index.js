@@ -124,46 +124,77 @@ const experiences = [
 
 const projects = [
       {
-      name: "Bandwidth-Aware Edge Perception Node",
+      name: "Bandwidth-Aware Edge Perception System",
       points: [
-        "Engineered a headless, containerized perception system on NVIDIA Jetson Orin Nano using ROS 2 Humble and FastDDS Discovery Server; achieved cold-boot-to-data transmission in <60 seconds.",
-        "Developed an adaptive 'Bandwidth Manager' that dynamically throttles perception FPS (30Hz → 5Hz) based on real-time network health, maintaining system stability under 10% packet loss and 200ms latency."
+        "Built a production-grade edge perception stack on NVIDIA Jetson Orin Nano with adaptive bandwidth management; dynamically adjusts inference FPS (15→10→5 Hz) based on real-time network conditions.",
+        "Achieved 24ms YOLOv8n inference via TensorRT FP16 optimization; system maintains 67% bandwidth reduction during CRITICAL mode while continuing reliable object detection."
       ],
       description: [
-        "Edge Architecture: Fully containerized deployment on JetPack 6 (Ubuntu 22.04); utilizes FastDDS Discovery Server (unicast) to eliminate multicast reliance and enable robust static discovery.",
-        "High-Performance Perception: C++ based YOLOv8 implementation optimized with TensorRT; modular design separates the inference engine (tensorrt_engine.cpp) from the ROS wrapper for low-latency detection.",
-        "Adaptive Network Control: Python-based 'Bandwidth Manager' subscribes to /network_health and proactively reconfigures the perception node's target FPS via ROS 2 services to prevent congestion.",
-        "Self-Healing Logic: Implemented a 'Watchdog Node' that monitors topic liveness; automatically kills and restarts the Docker container if telemetry stalls for >2 seconds.",
-        "Chaos Engineering: Integrated a custom 'Chaos Mode' test harness using Linux Traffic Control (tc) to inject jitter, latency, and packet loss, validating the system's graceful degradation capabilities."
+        "Multi-Machine ROS 2 Architecture: Distributed system across Jetson edge device and operator laptop using FastDDS Discovery Server for deterministic unicast communication; eliminates multicast dependency for production deployment.",
+        "High-Performance Perception: C++ perception node with TensorRT-accelerated YOLOv8n inference; modular design separates engine wrapper (tensorrt_engine.cpp) from YOLO preprocessing/postprocessing for maintainability.",
+        "Closed-Loop Adaptive Control: Python bandwidth manager evaluates network health (RTT, packet loss, bandwidth) and system metrics (GPU/CPU/thermal) every 2 seconds; dynamically reconfigures perception FPS via ROS 2 parameter service.",
+        "Network Chaos Engineering: Custom Linux tc-based test harness injects realistic degradation (jitter, latency, packet loss); validates graceful degradation across NORMAL/DEGRADED/CRITICAL modes with <5 second recovery time.",
+        "Container Orchestration: Docker Compose deployment with health monitoring watchdog; automatically restarts failed containers and maintains system availability under network stress."
       ],
       key_features: [
-        "✅ Adaptive FPS Throttling (Bandwidth-Aware)",
-        "✅ FastDDS Discovery Server (Static Discovery)",
-        "✅ Automated Container Recovery (Watchdog)",
-        "✅ TensorRT C++ Inference",
-        "✅ 'Chaos Mode' Fault Injection Suite"
+        "✅ Adaptive FPS Control (15→10→5 Hz based on network health)",
+        "✅ TensorRT FP16 Inference (24ms @ 41 FPS max capability)",
+        "✅ Multi-Machine FastDDS Discovery Server",
+        "✅ Automated Chaos Testing (tc-based fault injection)",
+        "✅ Self-Healing Container Watchdog"
       ],
       tech: [
         { name: "ROS 2 Humble" },
         { name: "NVIDIA Jetson Orin Nano" },
-        { name: "Docker & JetPack 6" },
-        { name: "C++ (Perception)" },
-        { name: "Python (Logic)" },
-        { name: "TensorRT" },
-        { name: "FastDDS" },
-        { name: "Linux Traffic Control (tc)" },
-        { name: "GitHub Actions (CI/CD)" },
-        { name: "Foxglove" }
+        { name: "TensorRT 8.6" },
+        { name: "Docker Compose" },
+        { name: "C++17 (Perception)" },
+        { name: "Python 3.10 (Control)" },
+        { name: "FastDDS Discovery" },
+        { name: "YOLOv8n" },
+        { name: "OpenCV 4.5" },
+        { name: "Linux Traffic Control (tc)" }
       ],
       tags: [
-        { name: "Edge AI", color: "blue-text-gradient" },
-        { name: "Network Engineering", color: "green-text-gradient" },
-        { name: "System Resilience", color: "red-text-gradient" },
-        { name: "Docker", color: "purple-text-gradient" },
-        { name: "C++", color: "pink-text-gradient" }
+        { name: "Edge Computing", color: "blue-text-gradient" },
+        { name: "Adaptive Systems", color: "green-text-gradient" },
+        { name: "Network Engineering", color: "red-text-gradient" },
+        { name: "Computer Vision", color: "purple-text-gradient" },
+        { name: "ROS 2", color: "pink-text-gradient" }
       ],
-      image: edge_p, 
-      source_code_link: "https://github.com/RuntimeTerror1001/robot_edge_stack"
+      demos: [
+        {
+          type: "video",
+          title: "Adaptive Bandwidth Management Demo",
+          description: "Real-time demonstration of FPS adaptation under network chaos (jitter + packet loss). Shows automatic mode transitions (NORMAL→DEGRADED→CRITICAL) and recovery.",
+          url: "./demos/robot_edge_stack/adaptive_bandwidth_demo.mp4"
+        },
+        {
+          type: "images",  // Changed from "image" to "images"
+          title: "Architecture & Performance",
+          description: "System architecture, control flow, performance metrics, and hardware setup",
+          images: [  // Wrapped in images array
+            {
+              url: "./demos/robot_edge_stack/system_overview.png",
+              caption: "Multi-machine ROS 2 deployment with closed-loop feedback"
+            },
+            {
+              url: "./demos/robot_edge_stack/data_flow.png",
+              caption: "End-to-end adaptive control flow"
+            },
+            {
+              url: "./demos/robot_edge_stack/performance.png",
+              caption: "Baseline performance and adaptive behavior metrics"
+            },
+            {
+              url: "./demos/robot_edge_stack/setup.jpeg",
+              caption: "NVIDIA Jetson Orin Nano with dual USB cameras"
+            }
+          ]
+        }
+      ],
+      image: edge_p,
+      source_code_link: "https://github.com/runtimeterror1001/robot_edge_stack"
     },
     {
     name: "ADAS - Path Following & AEB",

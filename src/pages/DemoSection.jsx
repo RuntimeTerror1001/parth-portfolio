@@ -208,7 +208,7 @@ const ImageDemo = ({ demo, index }) => {
         <img
           src={demo.images[currentImage].url}
           alt={demo.images[currentImage].caption || demo.title}
-          className="w-full h-64 sm:h-80 object-cover cursor-pointer"
+          className="w-full h-64 sm:h-80 object-contain cursor-pointer"
           onClick={() => setIsFullscreen(true)}
         />
         
@@ -255,24 +255,43 @@ const ImageDemo = ({ demo, index }) => {
 
       {/* Fullscreen modal */}
       {isFullscreen && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-95 z-50 flex items-center justify-center"
+      <div 
+        className="fixed inset-0 bg-black bg-opacity-95 z-[9999] flex items-center justify-center p-4"
+        onClick={() => setIsFullscreen(false)}
+      >
+        <button
           onClick={() => setIsFullscreen(false)}
+          className="absolute top-4 right-4 text-white text-4xl hover:text-bittersweet-500 transition-colors duration-300 z-[10000]"
         >
-          <img
-            src={demo.images[currentImage].url}
-            alt={demo.images[currentImage].caption || demo.title}
-            className="max-w-full max-h-full object-contain"
-            onClick={(e) => e.stopPropagation()}
-          />
-          <button
-            onClick={() => setIsFullscreen(false)}
-            className="absolute top-4 right-4 text-white text-2xl hover:text-bittersweet-500 transition-colors duration-300"
-          >
-            ×
-          </button>
-        </div>
-      )}
+          ×
+        </button>
+        
+        <img
+          src={demo.images[currentImage].url}
+          alt={demo.images[currentImage].caption || demo.title}
+          className="max-w-full max-h-full object-contain"
+          onClick={(e) => e.stopPropagation()}
+        />
+        
+        {/* Navigation in fullscreen */}
+        {demo.images.length > 1 && (
+          <>
+            <button
+              onClick={(e) => { e.stopPropagation(); prevImage(); }}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-bittersweet-500 bg-opacity-80 rounded-full flex items-center justify-center hover:bg-opacity-100 transition-all duration-300"
+            >
+              <FaChevronLeft className="text-white text-xl" />
+            </button>
+            <button
+              onClick={(e) => { e.stopPropagation(); nextImage(); }}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-bittersweet-500 bg-opacity-80 rounded-full flex items-center justify-center hover:bg-opacity-100 transition-all duration-300"
+            >
+              <FaChevronRight className="text-white text-xl" />
+            </button>
+          </>
+        )}
+      </div>
+    )}
     </motion.div>
   );
 };
